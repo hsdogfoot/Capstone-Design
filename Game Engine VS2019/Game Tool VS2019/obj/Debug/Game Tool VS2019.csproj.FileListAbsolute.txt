@@ -1,0 +1,15 @@
+C:\Users\xday0\Desktop\Capstone Design\Game Engine VS2019\Game Tool VS2019\bin\Debug\Game Tool VS2019.exe.config
+C:\Users\xday0\Desktop\Capstone Design\Game Engine VS2019\Game Tool VS2019\bin\Debug\Game Tool VS2019.exe
+C:\Users\xday0\Desktop\Capstone Design\Game Engine VS2019\Game Tool VS2019\bin\Debug\Game Tool VS2019.pdb
+C:\Users\xday0\Desktop\Capstone Design\Game Engine VS2019\Game Tool VS2019\obj\Debug\Game Tool VS2019.csprojAssemblyReference.cache
+C:\Users\xday0\Desktop\Capstone Design\Game Engine VS2019\Game Tool VS2019\obj\Debug\MainWindow.g.cs
+C:\Users\xday0\Desktop\Capstone Design\Game Engine VS2019\Game Tool VS2019\obj\Debug\App.g.cs
+C:\Users\xday0\Desktop\Capstone Design\Game Engine VS2019\Game Tool VS2019\obj\Debug\Game Tool VS2019_MarkupCompile.cache
+C:\Users\xday0\Desktop\Capstone Design\Game Engine VS2019\Game Tool VS2019\obj\Debug\Game Tool VS2019_MarkupCompile.lref
+C:\Users\xday0\Desktop\Capstone Design\Game Engine VS2019\Game Tool VS2019\obj\Debug\MainWindow.baml
+C:\Users\xday0\Desktop\Capstone Design\Game Engine VS2019\Game Tool VS2019\obj\Debug\Game Tool VS2019.g.resources
+C:\Users\xday0\Desktop\Capstone Design\Game Engine VS2019\Game Tool VS2019\obj\Debug\Game_Tool_VS2019.Properties.Resources.resources
+C:\Users\xday0\Desktop\Capstone Design\Game Engine VS2019\Game Tool VS2019\obj\Debug\Game Tool VS2019.csproj.GenerateResource.cache
+C:\Users\xday0\Desktop\Capstone Design\Game Engine VS2019\Game Tool VS2019\obj\Debug\Game Tool VS2019.csproj.CoreCompileInputs.cache
+C:\Users\xday0\Desktop\Capstone Design\Game Engine VS2019\Game Tool VS2019\obj\Debug\Game Tool VS2019.exe
+C:\Users\xday0\Desktop\Capstone Design\Game Engine VS2019\Game Tool VS2019\obj\Debug\Game Tool VS2019.pdb
