@@ -16,6 +16,33 @@
     <Filter Include="99. Utility\pch">
       <UniqueIdentifier>{0a245125-cc05-41d6-ad29-721451fd2401}</UniqueIdentifier>
     </Filter>
+    <Filter Include="99. Utility\Error Logger">
+      <UniqueIdentifier>{74924744-5de1-4934-b1e2-73fb18ea1eba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="99. Utility\String Converter">
+      <UniqueIdentifier>{7e1885c6-e6af-4950-abd8-24822f4bf286}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="99. Utility\Reference Management">
+      <UniqueIdentifier>{38257fe2-d797-4dfc-b38d-3999e4e0f3ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="98. System\Graphics">
+      <UniqueIdentifier>{f4b8037e-bcb6-496a-a9b4-b593ca4e89c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="98. System\Graphics\Adapter Reader">
+      <UniqueIdentifier>{5913f797-7e44-45f5-ba91-0a89e8576742}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="98. System\Graphics\Buffer">
+      <UniqueIdentifier>{8346a423-55b0-4131-8124-66764079fc23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="98. System\Windows">
+      <UniqueIdentifier>{cbc96848-3645-4759-9c5e-e38aa492240e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="98. System\Application">
+      <UniqueIdentifier>{0ab629ad-21bd-4144-9efb-3badad5447da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. In-Game Sources\Application">
+      <UniqueIdentifier>{439e6a4b-b593-41dc-a341-408a04b6efc8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Source\EntryPoints.cpp">
@@ -24,10 +51,61 @@
     <ClCompile Include="..\Source\stdafx.cpp">
       <Filter>99. Utility\pch</Filter>
     </ClCompile>
+    <ClCompile Include="..\Source\ErrorLogger.cpp">
+      <Filter>99. Utility\Error Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\StringConverter.cpp">
+      <Filter>99. Utility\String Converter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Base.cpp">
+      <Filter>99. Utility\Reference Management</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\GraphicDevice.cpp">
+      <Filter>98. System\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\AdapterReader.cpp">
+      <Filter>98. System\Graphics\Adapter Reader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Application.cpp">
+      <Filter>98. System\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\RenderWindow.cpp">
+      <Filter>98. System\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Game.cpp">
+      <Filter>01. In-Game Sources\Application</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Source\stdafx.h">
       <Filter>99. Utility\pch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\ErrorLogger.h">
+      <Filter>99. Utility\Error Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\StringConverter.h">
+      <Filter>99. Utility\String Converter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Base.h">
+      <Filter>99. Utility\Reference Management</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\FrameworkUtility.h">
+      <Filter>99. Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\GraphicDevice.h">
+      <Filter>98. System\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\AdapterReader.h">
+      <Filter>98. System\Graphics\Adapter Reader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Application.h">
+      <Filter>98. System\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\RenderWindow.h">
+      <Filter>98. System\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Game.h">
+      <Filter>01. In-Game Sources\Application</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

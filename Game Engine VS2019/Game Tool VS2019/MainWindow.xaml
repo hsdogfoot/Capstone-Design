@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Game_Tool_VS2019"
         mc:Ignorable="d"
-                Title="Dx11 Game Tool VS2019"
-        Width="1440" Height="900">
+        
+        Title="Dx11 Game Tool VS2019"
+        Width="1440" Height="900"
+        Loaded="OnLoaded_MainWindow"
+        Closed="OnClosed_MainWindow">
     <DockPanel>
         <!--Menu Bar-->
         <Menu DockPanel.Dock="Top"
@@ -52,9 +55,9 @@
                         <TabControl Grid.Row="0" Grid.Column="1" Grid.RowSpan="1" Grid.ColumnSpan="1">
                             <TabItem Header="미리 보기"
                                      Height="20">
-                                <Grid x:Name="GamePreview"
-                                      Background="Blue">
-                                </Grid>
+                                <Border x:Name="GamePreview"
+                                        Background="Blue">
+                                </Border>
                             </TabItem>
                         </TabControl>
                         <!--Attribute Editor-->

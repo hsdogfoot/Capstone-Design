@@ -174,16 +174,33 @@ copy "$(OutDir)*.*" "$(SolutionDir)Game Tool VS2019\bin\$(Configuration)"</Comma
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Source\AdapterReader.cpp" />
+    <ClCompile Include="..\Source\Application.cpp" />
+    <ClCompile Include="..\Source\Base.cpp" />
     <ClCompile Include="..\Source\EntryPoints.cpp" />
+    <ClCompile Include="..\Source\ErrorLogger.cpp" />
+    <ClCompile Include="..\Source\Game.cpp" />
+    <ClCompile Include="..\Source\GraphicDevice.cpp" />
+    <ClCompile Include="..\Source\RenderWindow.cpp" />
     <ClCompile Include="..\Source\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="..\Source\StringConverter.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Source\AdapterReader.h" />
+    <ClInclude Include="..\Source\Application.h" />
+    <ClInclude Include="..\Source\Base.h" />
+    <ClInclude Include="..\Source\ErrorLogger.h" />
+    <ClInclude Include="..\Source\FrameworkUtility.h" />
+    <ClInclude Include="..\Source\Game.h" />
+    <ClInclude Include="..\Source\GraphicDevice.h" />
+    <ClInclude Include="..\Source\RenderWindow.h" />
     <ClInclude Include="..\Source\stdafx.h" />
+    <ClInclude Include="..\Source\StringConverter.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
