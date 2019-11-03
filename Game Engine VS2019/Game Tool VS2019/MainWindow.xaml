@@ -69,7 +69,7 @@
                                 </Grid>
                             </TabItem>
                             <!--Equiped Pattern List-->
-                            <TabItem Header="행동 규칙"
+                            <TabItem Header="행동 규칙 편집기"
                                      Height="20">
                                 <ListBox x:Name="EquipedPatternList"
                                          Background="White">

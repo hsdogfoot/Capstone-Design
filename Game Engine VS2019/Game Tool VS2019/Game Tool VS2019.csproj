@@ -55,9 +55,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Block.cs" />
+    <Compile Include="IfAdder.cs" />
+    <Compile Include="IfBehaviourListWindow.xaml.cs">
+      <DependentUpon>IfBehaviourListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pattern.cs" />
+    <Compile Include="PatternManager.cs" />
     <Compile Include="TestWindow.xaml.cs">
       <DependentUpon>TestWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="IfBehaviourListWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

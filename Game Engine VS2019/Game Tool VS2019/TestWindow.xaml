@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="TestWindow" 
         
-        Width="1440" Height="900">
+        Width="1440" Height="900"
+        Closing="OnClosing_TestWindow">
     <DockPanel>
         <!--Menu Bar-->
         <Menu DockPanel.Dock="Top"
@@ -42,11 +43,10 @@
                         </Grid.ColumnDefinitions>
                         <!--Control Panel-->
                         <Border Grid.Row="0" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="1"
-                                BorderThickness="1"
-                                BorderBrush="White">
+                                BorderThickness="1,1,1,0"
+                                BorderBrush="DarkGray">
                             <Grid Grid.Row="0" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="1"
-                                  Background="White"
-                                  Margin="1">
+                                  Background="White">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="1*"/>
                                     <RowDefinition Height="1*"/>
@@ -62,7 +62,8 @@
                                 </Grid.RowDefinitions>
                                 <Button Content="새 행동 규칙 생성하기"
                                         Grid.Row="0"
-                                        Margin="10">
+                                        Margin="10"
+                                        Click="OnButtonClicked_NewPattern">
                                 </Button>
                                 <Button Content="저장하기"
                                         Grid.Row="1"
@@ -73,6 +74,32 @@
                                         Margin="10">
                                 </Button>
                             </Grid>
+                        </Border>
+                        <!--Game View-->
+                        <Grid Grid.Row="0" Grid.Column="1" Grid.RowSpan="1" Grid.ColumnSpan="2"
+                              Background="DarkCyan">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1.5*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1.5*"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="1" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="1"
+                                        x:Name="PatternView"
+                                        Background="White"
+                                        Orientation="Horizontal">
+
+                            </StackPanel>
+                        </Grid>
+                        <!--Pattern List-->
+                        <Border Grid.Row="1" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="3"
+                                Background="White"
+                                BorderThickness="1,1,0,1"
+                                BorderBrush="DarkGray">
+                            <WrapPanel x:Name="PatternList2"
+                                       Background="White"
+                                       Orientation="Horizontal"
+                                       Margin="5">
+                            </WrapPanel>
                         </Border>
                     </Grid>
                 </TabItem>
