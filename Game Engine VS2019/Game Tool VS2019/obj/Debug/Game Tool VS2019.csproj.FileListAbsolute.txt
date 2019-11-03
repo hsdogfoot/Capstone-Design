@@ -31,3 +31,5 @@ C:\Users\xday0\Desktop\Capstone Design\Game Engine VS2019\Game Tool VS2019\obj\D
 C:\Users\xday0\Desktop\Capstone Design\Game Engine VS2019\Game Tool VS2019\obj\Debug\TestWindow.baml
 C:\Users\xday0\Desktop\Capstone Design\Game Engine VS2019\Game Tool VS2019\obj\Debug\IfBehaviourListWindow.g.cs
 C:\Users\xday0\Desktop\Capstone Design\Game Engine VS2019\Game Tool VS2019\obj\Debug\IfBehaviourListWindow.baml
+C:\Users\usert\Desktop\Capstone Design\Game Engine VS2019\Game Tool VS2019\obj\Debug\IfBehaviourListWindow.g.cs
+C:\Users\usert\Desktop\Capstone Design\Game Engine VS2019\Game Tool VS2019\obj\Debug\TestWindow.g.cs
