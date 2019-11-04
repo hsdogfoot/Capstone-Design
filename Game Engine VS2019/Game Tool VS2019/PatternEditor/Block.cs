@@ -2,12 +2,13 @@
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace Game_Tool_VS2019.Pattern
+namespace Game_Tool_VS2019.PatternEditor
 {
     public class Block : Border
     {
         public int ID { get; private set; }
         public string Comment { get; private set; }
+        public EBlockType Type { get; private set; }
 
         private Grid mGrid = new Grid();
         private TextBlock mTextBlock = new TextBlock();
@@ -16,11 +17,12 @@ namespace Game_Tool_VS2019.Pattern
         {
             ID = id;
             Comment = comment;
+            Type = type;
 
             Width = 200.0;
             Height = 125.0;
 
-            switch (type)
+            switch (Type)
             {
                 case EBlockType.IfStatement:
                     Background = Brushes.LightBlue;
@@ -46,6 +48,13 @@ namespace Game_Tool_VS2019.Pattern
             mTextBlock.Text = comment;
             mTextBlock.TextAlignment = TextAlignment.Center;
             mTextBlock.VerticalAlignment = VerticalAlignment.Center;
+        }
+
+        public Block Clone()
+        {
+            Block block = new Block(ID, Comment, Type);
+
+            return block;
         }
     }
 }

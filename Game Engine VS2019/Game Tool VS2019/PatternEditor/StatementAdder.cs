@@ -3,14 +3,18 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
-namespace Game_Tool_VS2019.Pattern
+namespace Game_Tool_VS2019.PatternEditor
 {
     class StatementAdder : Border
     {
+        public int DependencyIndex { get; private set; }
+
         private Polygon mPolygon = new Polygon();
 
-        public StatementAdder(TestWindow parentWindow)
+        public StatementAdder(int dependencyIndex)
         {
+            DependencyIndex = dependencyIndex;
+
             Width = 50.0;
             Height = 50.0;
 

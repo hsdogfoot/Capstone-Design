@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Game_Tool_VS2019.Pattern
+namespace Game_Tool_VS2019.PatternEditor
 {
     public class Pattern
     {

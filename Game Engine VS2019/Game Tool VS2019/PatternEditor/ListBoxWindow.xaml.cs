@@ -1,10 +1,10 @@
 ﻿using System.Windows;
 
-namespace Game_Tool_VS2019.Pattern
+namespace Game_Tool_VS2019.PatternEditor
 {
     public partial class ListBoxWindow : Window
     {
-        private EBlockType mType = EBlockType.Behaviour;
+        public EBlockType Type { get; private set; } = EBlockType.Behaviour;
         private bool mbHideMode = true;
 
         public ListBoxWindow()
@@ -34,19 +34,13 @@ namespace Game_Tool_VS2019.Pattern
                     break;
             }
 
-            mType = type;
+            Type = type;
         }
 
         public void Destroy()
         {
             mbHideMode = false;
             Close();
-        }
-
-        private void OnVisibleChanged_ListBoxWindow(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            Left = SystemParameters.PrimaryScreenWidth / 2 - Width / 2;
-            Top = SystemParameters.PrimaryScreenHeight / 2 - Height / 2;
         }
 
         private void OnColsing_ListBoxWindow(object sender, System.ComponentModel.CancelEventArgs e)
@@ -56,10 +50,6 @@ namespace Game_Tool_VS2019.Pattern
                 e.Cancel = true;
                 Hide();
             }
-        }
-
-        private void OnMouseDoubleClick_PatternPartsList(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
         }
     }
 }
