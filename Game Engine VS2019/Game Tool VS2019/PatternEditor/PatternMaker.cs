@@ -20,7 +20,7 @@ namespace Game_Tool_VS2019.PatternEditor
             IfStatements.Add(new Block(8, "( ) 사", EBlockType.IfStatement));
             IfStatements.Add(new Block(9, "( ) 아", EBlockType.IfStatement));
             IfStatements.Add(new Block(10, "( ) 자", EBlockType.IfStatement));
-            IfStatements.Add(new Block(111, "( ) 차", EBlockType.IfStatement));
+            IfStatements.Add(new Block(11, "( ) 차", EBlockType.IfStatement));
 
             Behaviours.Add(new Block(0, "( ) 의 속도로 좌우로 이동한다.", EBlockType.Behaviour));
             Behaviours.Add(new Block(1, "( ) 의 힘으로 점프한다.", EBlockType.Behaviour));

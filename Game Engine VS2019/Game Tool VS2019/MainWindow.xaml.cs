@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows;
+using System.Windows.Input;
 using System.Windows.Threading;
 
 using Game_Tool_VS2019.PatternEditor;
@@ -102,6 +104,8 @@ namespace Game_Tool_VS2019
             adder.MouseLeftButtonUp += OnMouseLeftButtonUp_StatementAdder;
             PatternViewPanel.Children.Add(adder);
             PatternViewPanel.Children.Add(mLoadedPattern.Behaviour.Clone());
+
+            PatternName.Text = mLoadedPattern.Name;
         }
 
         private void OnLoaded_MainWindow(object sender, RoutedEventArgs e)
@@ -114,6 +118,60 @@ namespace Game_Tool_VS2019
             mGameViewTimer.Interval = TimeSpan.FromMilliseconds(16.67);
 
             mGameViewTimer.Start();
+        }
+
+        private void OnLoaded_PatternPanel(object sender, RoutedEventArgs e)
+        {
+            PatternPanel.Children.Clear();
+
+            if (!Directory.Exists("Save Data\\Pattern"))
+            {
+                Directory.CreateDirectory("Save Data\\Pattern");
+            }
+
+            string[] files = Directory.GetFiles("Save Data\\Pattern");
+
+            FileStream fileStream;
+            StreamReader streamReader;
+            string[] ifStatementsData;
+
+            PatternFile patternFile;
+
+            foreach (string filePath in files)
+            {
+                if ((fileStream = File.Open(filePath, FileMode.Open)) == null)
+                {
+                    continue;
+                }
+
+                streamReader = new StreamReader(fileStream);
+
+                patternFile = new PatternFile(filePath, streamReader.ReadLine());
+
+                ifStatementsData = streamReader.ReadLine().Split(',');
+                for (int i = 1; i < ifStatementsData.Length; ++i)
+                {
+                    patternFile.LoadedPattern.IfStatements.AddLast(PatternMaker.IfStatements[int.Parse(ifStatementsData[i])].Clone());
+                }
+
+                patternFile.LoadedPattern.Behaviour = PatternMaker.Behaviours[int.Parse(streamReader.ReadLine())].Clone();
+                patternFile.MouseLeftButtonDown += OnMouseLeftButtonDown_PatternFile;
+
+                PatternPanel.Children.Add(patternFile);
+
+                streamReader.Close();
+                fileStream.Close();
+            }
+        }
+
+        private void OnMouseLeftButtonDown_PatternFile(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ClickCount != 2)
+            {
+                return;
+            }
+
+            MessageBox.Show("DoubleClicked.");
         }
 
         private void OnClick_CreatePatternButton(object sender, RoutedEventArgs e)
@@ -135,6 +193,40 @@ namespace Game_Tool_VS2019
 
             mListBoxWindow.ReloadList(EBlockType.Behaviour);
             mListBoxWindow.Show();
+        }
+
+        private void OnClick_SavePatternButton(object sender, RoutedEventArgs e)
+        {
+            if (mLoadedPattern == null)
+            {
+                MessageBox.Show("작성된 행동 규칙이 없습니다.");
+
+                return;
+            }
+
+            string fileName = string.Format($"PatternData_{mLoadedPattern.Name}.dat");
+            FileStream stream = File.Open($"Save Data/Pattern/{fileName}", FileMode.OpenOrCreate);
+
+            StreamWriter streamWriter = new StreamWriter(stream);
+            streamWriter.WriteLine(mLoadedPattern.Name);
+
+            streamWriter.Write(mLoadedPattern.IfStatements.Count);
+            LinkedListNode<Block> block = mLoadedPattern.IfStatements.Last;
+            while (block != null)
+            {
+                streamWriter.Write($",{block.Value.ID}");
+
+                block = block.Previous;
+            }
+
+            streamWriter.WriteLine("");
+
+            streamWriter.Write(mLoadedPattern.Behaviour.ID);
+
+            streamWriter.Flush();
+            streamWriter.Close();
+
+            stream.Close();
         }
 
         private void OnMouseLeftButtonUp_StatementAdder(object sender, RoutedEventArgs e)

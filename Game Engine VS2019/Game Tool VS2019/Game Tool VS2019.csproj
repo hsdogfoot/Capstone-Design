@@ -61,6 +61,7 @@
       <DependentUpon>ListBoxWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="PatternEditor\Pattern.cs" />
+    <Compile Include="PatternEditor\PatternFile.cs" />
     <Compile Include="PatternEditor\PatternMaker.cs" />
     <Compile Include="PatternEditor\StatementAdder.cs" />
     <Page Include="MainWindow.xaml">

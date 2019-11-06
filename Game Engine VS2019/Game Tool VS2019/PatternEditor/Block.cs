@@ -12,6 +12,7 @@ namespace Game_Tool_VS2019.PatternEditor
 
         private Grid mGrid = new Grid();
         private TextBlock mTextBlock = new TextBlock();
+        private TextBox mTextBox = new TextBox();
 
         public Block(int id, string comment, EBlockType type)
         {
@@ -36,6 +37,7 @@ namespace Game_Tool_VS2019.PatternEditor
 
             Child = mGrid;
             mGrid.Children.Add(mTextBlock);
+            mGrid.Children.Add(mTextBox);
 
             mGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
             mGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
@@ -45,9 +47,21 @@ namespace Game_Tool_VS2019.PatternEditor
             Grid.SetRowSpan(mTextBlock, 1);
             Grid.SetColumnSpan(mTextBlock, 1);
 
+            Grid.SetRow(mTextBox, 1);
+            Grid.SetColumn(mTextBox, 0);
+            Grid.SetRowSpan(mTextBox, 1);
+            Grid.SetColumnSpan(mTextBox, 1);
+
             mTextBlock.Text = comment;
             mTextBlock.TextAlignment = TextAlignment.Center;
             mTextBlock.VerticalAlignment = VerticalAlignment.Center;
+
+            mTextBox.Width = 100.0;
+            mTextBox.Height = 25.0;
+            mTextBox.HorizontalAlignment = HorizontalAlignment.Center;
+            mTextBox.VerticalAlignment = VerticalAlignment.Center;
+            mTextBox.HorizontalContentAlignment = HorizontalAlignment.Center;
+            mTextBox.VerticalContentAlignment = VerticalAlignment.Center;
         }
 
         public Block Clone()
