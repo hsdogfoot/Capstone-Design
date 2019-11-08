@@ -171,7 +171,31 @@ namespace Game_Tool_VS2019
                 return;
             }
 
-            MessageBox.Show("DoubleClicked.");
+            if (mLoadedPattern == null)
+            {
+                PatternFile file = (PatternFile)sender;
+
+                mLoadedPattern = file.LoadedPattern;
+                reloadPatternView();
+            }
+            else
+            {
+                MessageBoxResult msgResult = MessageBox.Show("작업중인 내용이 있습니다. 저장하고 계속하시겠습니까?", "Message", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+
+                switch (msgResult)
+                {
+                    case MessageBoxResult.Yes:
+                        break;
+                    case MessageBoxResult.No:
+                        PatternFile file = (PatternFile)sender;
+
+                        mLoadedPattern = file.LoadedPattern;
+                        reloadPatternView();
+                        break;
+                    default:
+                        return;
+                }
+            }
         }
 
         private void OnClick_CreatePatternButton(object sender, RoutedEventArgs e)

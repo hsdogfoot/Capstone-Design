@@ -27,7 +27,7 @@ C:\Users\usert\Desktop\Capstone Design\Game Engine VS2019\Game Tool VS2019\obj\D
 C:\Users\usert\Desktop\Capstone Design\Game Engine VS2019\Game Tool VS2019\obj\Debug\Game Tool VS2019.csproj.GenerateResource.cache
 C:\Users\usert\Desktop\Capstone Design\Game Engine VS2019\Game Tool VS2019\obj\Debug\Game Tool VS2019.exe
 C:\Users\usert\Desktop\Capstone Design\Game Engine VS2019\Game Tool VS2019\obj\Debug\Game Tool VS2019.pdb
-C:\Users\usert\Desktop\Capstone Design\Game Engine VS2019\Game Tool VS2019\obj\Debug\IfBehaviourListWindow.g.cs
-C:\Users\usert\Desktop\Capstone Design\Game Engine VS2019\Game Tool VS2019\obj\Debug\TestWindow.g.cs
 C:\Users\xday0\Desktop\Capstone Design\Game Engine VS2019\Game Tool VS2019\obj\Debug\PatternEditor\ListBoxWindow.g.cs
 C:\Users\xday0\Desktop\Capstone Design\Game Engine VS2019\Game Tool VS2019\obj\Debug\PatternEditor\ListBoxWindow.baml
+C:\Users\usert\Desktop\Capstone Design\Game Engine VS2019\Game Tool VS2019\obj\Debug\PatternEditor\ListBoxWindow.g.cs
+C:\Users\usert\Desktop\Capstone Design\Game Engine VS2019\Game Tool VS2019\obj\Debug\PatternEditor\ListBoxWindow.baml
