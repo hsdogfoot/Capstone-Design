@@ -5,6 +5,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Threading;
 
 using Game_Tool_VS2019.PatternEditor;
@@ -108,19 +109,43 @@ namespace Game_Tool_VS2019
             PatternName.Text = mLoadedPattern.Name;
         }
 
-        private void OnLoaded_MainWindow(object sender, RoutedEventArgs e)
+        private void savePattern()
         {
-            mHwndHost = new GameViewHwndHost((int)GamePreview.ActualWidth, (int)GamePreview.ActualHeight);
-            GamePreview.Child = mHwndHost;
+            if (mLoadedPattern == null)
+            {
+                MessageBox.Show("작성된 행동 규칙이 없습니다.");
 
-            mGameViewTimer = new DispatcherTimer();
-            mGameViewTimer.Tick += new EventHandler(runGame);
-            mGameViewTimer.Interval = TimeSpan.FromMilliseconds(16.67);
+                return;
+            }
 
-            mGameViewTimer.Start();
+            string fileName = string.Format($"PatternData_{mLoadedPattern.Name}.dat");
+            FileStream stream = File.Open($"Save Data/Pattern/{fileName}", FileMode.OpenOrCreate);
+
+            StreamWriter streamWriter = new StreamWriter(stream);
+            streamWriter.WriteLine(mLoadedPattern.Name);
+
+            streamWriter.Write(mLoadedPattern.IfStatements.Count);
+            LinkedListNode<Block> block = mLoadedPattern.IfStatements.Last;
+            while (block != null)
+            {
+                streamWriter.Write($",{block.Value.ID}");
+
+                block = block.Previous;
+            }
+
+            streamWriter.WriteLine("");
+
+            streamWriter.Write(mLoadedPattern.Behaviour.ID);
+
+            streamWriter.Flush();
+            streamWriter.Close();
+
+            stream.Close();
+
+            reloadPatternList();
         }
 
-        private void OnLoaded_PatternPanel(object sender, RoutedEventArgs e)
+        private void reloadPatternList()
         {
             PatternPanel.Children.Clear();
 
@@ -164,6 +189,23 @@ namespace Game_Tool_VS2019
             }
         }
 
+        private void OnLoaded_MainWindow(object sender, RoutedEventArgs e)
+        {
+            mHwndHost = new GameViewHwndHost((int)GamePreview.ActualWidth, (int)GamePreview.ActualHeight);
+            GamePreview.Child = mHwndHost;
+
+            mGameViewTimer = new DispatcherTimer();
+            mGameViewTimer.Tick += new EventHandler(runGame);
+            mGameViewTimer.Interval = TimeSpan.FromMilliseconds(16.67);
+
+            mGameViewTimer.Start();
+        }
+
+        private void OnLoaded_PatternPanel(object sender, RoutedEventArgs e)
+        {
+            reloadPatternList();
+        }
+
         private void OnMouseLeftButtonDown_PatternFile(object sender, MouseButtonEventArgs e)
         {
             if (e.ClickCount != 2)
@@ -185,7 +227,9 @@ namespace Game_Tool_VS2019
                 switch (msgResult)
                 {
                     case MessageBoxResult.Yes:
-                        break;
+                        savePattern();
+
+                        goto case MessageBoxResult.No;
                     case MessageBoxResult.No:
                         PatternFile file = (PatternFile)sender;
 
@@ -198,13 +242,37 @@ namespace Game_Tool_VS2019
             }
         }
 
+        private void OnMouseLeftButtonDown_PatternName(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ClickCount != 2)
+            {
+                return;
+            }
+
+            if (mLoadedPattern == null)
+            {
+                return;
+            }
+
+            PatternName.IsEnabled = true;
+        }
+
         private void OnClick_CreatePatternButton(object sender, RoutedEventArgs e)
         {
             if (mLoadedPattern != null)
             {
-                MessageBox.Show("!!");
+                MessageBoxResult msgResult = MessageBox.Show("작업중인 내용이 있습니다. 저장하고 계속하시겠습니까?", "Message", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
 
-                return;
+                switch (msgResult)
+                {
+                    case MessageBoxResult.Yes:
+                        savePattern();
+                        break;
+                    case MessageBoxResult.No:
+                        break;
+                    default:
+                        return;
+                }
             }
 
             mLoadedPattern = new Pattern("Temp");
@@ -221,36 +289,7 @@ namespace Game_Tool_VS2019
 
         private void OnClick_SavePatternButton(object sender, RoutedEventArgs e)
         {
-            if (mLoadedPattern == null)
-            {
-                MessageBox.Show("작성된 행동 규칙이 없습니다.");
-
-                return;
-            }
-
-            string fileName = string.Format($"PatternData_{mLoadedPattern.Name}.dat");
-            FileStream stream = File.Open($"Save Data/Pattern/{fileName}", FileMode.OpenOrCreate);
-
-            StreamWriter streamWriter = new StreamWriter(stream);
-            streamWriter.WriteLine(mLoadedPattern.Name);
-
-            streamWriter.Write(mLoadedPattern.IfStatements.Count);
-            LinkedListNode<Block> block = mLoadedPattern.IfStatements.Last;
-            while (block != null)
-            {
-                streamWriter.Write($",{block.Value.ID}");
-
-                block = block.Previous;
-            }
-
-            streamWriter.WriteLine("");
-
-            streamWriter.Write(mLoadedPattern.Behaviour.ID);
-
-            streamWriter.Flush();
-            streamWriter.Close();
-
-            stream.Close();
+            savePattern();
         }
 
         private void OnMouseLeftButtonUp_StatementAdder(object sender, RoutedEventArgs e)
@@ -278,6 +317,28 @@ namespace Game_Tool_VS2019
             else
             {
                 mInsertTargetIndex = -1;
+            }
+        }
+
+        private void OnEnableChanged_PatternName(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (PatternName.IsEnabled)
+            {
+                Background = Brushes.White;
+            }
+            else
+            {
+                Background = Brushes.DarkCyan;
+            }
+        }
+
+        private void OnKeyDown_PatternName(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                PatternName.IsEnabled = false;
+
+                mLoadedPattern.SetName(PatternName.Text);
             }
         }
 

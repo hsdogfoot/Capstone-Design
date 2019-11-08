@@ -33,13 +33,13 @@ namespace Game_Tool_VS2019.PatternEditor
             mGrid.Children.Add(mImage);
             mGrid.Children.Add(mTextBlock);
 
-            mGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(120.0) });
+            mGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(100.0) });
             mGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(5.0) });
             mGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(25.0) });
 
-            mGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(15.0) });
-            mGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(120.0) });
-            mGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(15.0) });
+            mGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1.0, GridUnitType.Star) });
+            mGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(100.0) });
+            mGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1.0, GridUnitType.Star) });
 
             Grid.SetRow(mImage, 0);
             Grid.SetColumn(mImage, 1);
@@ -53,7 +53,7 @@ namespace Game_Tool_VS2019.PatternEditor
 
             mImage.Source = new BitmapImage(new Uri(Environment.CurrentDirectory + string.Format($"\\Resources\\Textures\\PatternImage.png")));
 
-            mTextBlock.Text = "TESTNAMEABCDEDFGHIJKLMNOPQRSTUVWXYZ";
+            mTextBlock.Text = fileName;
             mTextBlock.FontSize = 20.0;
             mTextBlock.HorizontalAlignment = HorizontalAlignment.Center;
             mTextBlock.VerticalAlignment = VerticalAlignment.Center;

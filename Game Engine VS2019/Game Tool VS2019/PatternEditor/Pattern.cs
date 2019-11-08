@@ -13,5 +13,10 @@ namespace Game_Tool_VS2019.PatternEditor
         {
             Name = name;
         }
+
+        public void SetName(string name)
+        {
+            Name = name;
+        }
     }
 }

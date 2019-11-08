@@ -199,9 +199,21 @@
                                 <RowDefinition Height="1*"/>
                                 <RowDefinition Height="1.5*"/>
                             </Grid.RowDefinitions>
-                            <TextBlock Grid.Row="0" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="1"
-                                       x:Name="PatternName">
-                            </TextBlock>
+                            <StackPanel Grid.Row="0" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="1"
+                                        Width="150" Height="30"
+                                        VerticalAlignment="Top" HorizontalAlignment="Left"
+                                        Margin="5"
+                                        MouseLeftButtonDown="OnMouseLeftButtonDown_PatternName">
+                                <TextBox 
+                                     x:Name="PatternName"
+                                     FontSize="20"
+                                     TextAlignment="Left"
+                                     IsEnabled="False"
+                                     IsEnabledChanged="OnEnableChanged_PatternName"
+                                     KeyDown="OnKeyDown_PatternName">
+                                </TextBox>
+                            </StackPanel>
+                            
                             <StackPanel Grid.Row="1" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="1"
                                         x:Name="PatternViewPanel"
                                         Background="White"
